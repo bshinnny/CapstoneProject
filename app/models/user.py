@@ -23,7 +23,7 @@ class User(db.Model, UserMixin):
 
     cart_item = db.relationship('CartItem', primaryjoin='User.id == CartItem.user_id', back_populates='user', cascade='all, delete')
     order = db.relationship('Order', primaryjoin='User.id == Order.user_id', back_populates='user', cascade='all, delete')
-
+    product = db.relationship('Product', primaryjoin='User.id == Product.user_id', back_populates='user', cascade='all, delete')
 
     @property
     def password(self):

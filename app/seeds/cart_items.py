@@ -3,12 +3,12 @@ from app.models import db, CartItem, environment, SCHEMA
 def seed_cart_items():
     cart1 = CartItem(
         user_id=1,
-        product_id=1,
+        product_id=5,
         quantity=1
     )
     cart2 = CartItem(
         user_id=1,
-        product_id=2,
+        product_id=6,
         quantity=1
     )
     cart3 = CartItem(
