@@ -10,9 +10,20 @@ class User(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(50), nullable=False)
+    last_name = db.Column(db.String(50), nullable=False)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    street = db.Column(db.String(255), nullable=False)
+    city = db.Column(db.String(50), nullable=False)
+    state = db.Column(db.String(50), nullable=False)
+    zip_code = db.Column(db.String(10), nullable=False)
+    country = db.Column(db.String(50), nullable=False)
+
+    cart_item = db.relationship('CartItem', primaryjoin='User.id == CartItem.user_id', back_populates='user', cascade='all, delete')
+    order = db.relationship('Order', primaryjoin='User.id == Order.user_id', back_populates='user', cascade='all, delete')
+
 
     @property
     def password(self):
@@ -28,6 +39,13 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
+            'firstName': self.first_name,
+            'lastName': self.last_name,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'street': self.street,
+            'city': self.city,
+            'state': self.state,
+            'zipCode': self.zip_code,
+            'country': self.country
         }
