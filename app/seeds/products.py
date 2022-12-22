@@ -50,7 +50,7 @@ def seed_products():
         name='Colgate Optic White Overnight Teeth Whitening Pen, Teeth Stain Remover to Whiten Teeth, 35 Nightly Treatments, 0.08 Fl Oz',
         price=24.99,
         brand='Colgate',
-        description='Whiten teeth while you sleep. In as little as a week (two weeks of treatment is recommended for best results), these Optic White teeth whitening pens whiten your teeth up to two shades and have 15X more whitening power in 1 treatment versus brushing alone, unlike other tooth whitening pens.',
+        description='Whiten teeth while you sleep.',
         length=2.0,
         width=2.0,
         height=5.0,
@@ -134,7 +134,7 @@ def seed_products():
         category='Fashion',
         asin='C111132323',
         prime=True,
-        image='https://www.google.com/url?sa=i&url=https%3A%2F%2Fsneakernews.com%2F2022%2F09%2F16%2Faime-leon-dore-new-balance-550-fall-winter-2022-release-info%2F&psig=AOvVaw3YGPqdvzBIaIoGUyddTte5&ust=1671786266419000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCIi1xqbvjPwCFQAAAAAdAAAAABAT'
+        image='https://media.gq.com/photos/619e62c112863e442e3336d5/1:1/w_2000,h_2000,c_limit/view-side-double-05_3200x.jpeg'
     )
 
     db.session.add(house1)
