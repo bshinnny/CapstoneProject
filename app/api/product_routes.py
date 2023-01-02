@@ -14,7 +14,7 @@ def get_all_products():
     Get all products and returns them in a list of product dictionaries.
     """
     products = Product.query.all()
-    return {'products': [product.to_dict() for product in products]}
+    return {'Products': [product.to_dict() for product in products]}
 
 # GET product details.
 @product_routes.route('/<int:product_id>')
@@ -24,6 +24,19 @@ def get_product_details(product_id):
     """
     product = Product.query.get(product_id)
     return product.to_dict()
+
+# GET current user's products.
+@product_routes.route('/current')
+@login_required
+def get_user_products():
+    """
+    Get current user's products.
+    """
+    current_user_id = current_user.id
+    products = Product.query.filter(Product.user_id == current_user_id).all()
+    return {'Products': [product.to_dict() for product in products]}
+
+
 
 # POST a new product.
 @product_routes.route('', methods=['POST'])
