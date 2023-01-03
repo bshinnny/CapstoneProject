@@ -1,6 +1,7 @@
 .user-cart-container {
     display: flex;
     width: 95vw;
+    margin: 1vw 2.5vw;
     height: fit-content;
     /* border: 1px solid red; */
 }

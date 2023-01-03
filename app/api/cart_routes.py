@@ -65,7 +65,34 @@ def post_cart_item(product_id):
         db.session.add(new_cart_item)
         db.session.commit()
 
-        return new_cart_item.to_dict()
+        cart_item = CartItem.query.options(joinedload(CartItem.product)).get(new_cart_item.id)
+
+        def cart_item_to_dict(cart_item):
+            return {
+                "id": cart_item.id,
+                "userId": cart_item.user_id,
+                "productId": cart_item.product_id,
+                "quantity": cart_item.quantity,
+                "Product": {
+                    "id": cart_item.product.id,
+                    "userId": cart_item.product.user_id,
+                    "name": cart_item.product.name,
+                    "price": cart_item.product.price,
+                    "brand": cart_item.product.brand,
+                    "description": cart_item.product.description,
+                    "length": cart_item.product.length,
+                    "width": cart_item.product.width,
+                    "height": cart_item.product.height,
+                    "weight": cart_item.product.weight,
+                    "color": cart_item.product.color,
+                    "category": cart_item.product.category,
+                    "asin": cart_item.product.asin,
+                    "prime": cart_item.product.prime,
+                    "imageUrl": cart_item.product.image,
+                }
+            }
+
+        return cart_item_to_dict(cart_item)
 
 
 # DELETE item from user's cart.

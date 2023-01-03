@@ -3,7 +3,8 @@
     width: 95vw;
     display: flex;
     justify-content: space-between;
-    /* margin: 20px; */
+    /* justify-self: center; */
+    margin: 1vw 2.5vw;
 }
 
 /* .product-details-image-div {
