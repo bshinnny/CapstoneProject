@@ -130,7 +130,7 @@ def delete_product(product_id):
         return {'errors': 'Product not found.'}, 404
 
     if not current_user_id == product.user_id:
-        return {'errors': 'You are not authorized to edit this product.'}, 401
+        return {'errors': 'You are not authorized to delete this product.'}, 401
 
     db.session.delete(product)
     db.session.commit()
