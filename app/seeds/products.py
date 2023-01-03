@@ -111,7 +111,7 @@ def seed_products():
         category='Fashion',
         asin='B2315U2323',
         prime=True,
-        image='https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_892,c_limit/89c121fc-3d07-4de0-aef6-bcc9c2764a2c/air-jordan-1-2022-lost-and-found-chicago-the-inspiration-behind-the-design.jpg'
+        image='https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/080/963/037/original/920714_01.jpg.jpeg?action=crop&width=950'
     )
     shoes2 = Product(
         user_id=3,
@@ -127,14 +127,14 @@ def seed_products():
         category='Fashion',
         asin='A231532323',
         prime=True,
-        image='https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/803fed99-f77f-4bae-b30c-443964974c59/women%E2%80%99s-air-jordan-3-sp-a-ma-mani%C3%A9re-release-date.jpg'
+        image='https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/056/093/849/original/690789_01.jpg.jpeg?action=crop&width=950'
     )
     shoes3 = Product(
         user_id=3,
         name="New Balance 550 Aime Leon Dore",
         price=210.00,
         brand="New Balance",
-        description="Jordan's most sought after collaboration with A Ma Maniere",
+        description="New Balance's most sought after collaboration with Aime Leon Dore",
         length=12.0,
         width=4.0,
         height=5.0,
@@ -143,7 +143,7 @@ def seed_products():
         category='Fashion',
         asin='C111132323',
         prime=True,
-        image='https://media.gq.com/photos/619e62c112863e442e3336d5/1:1/w_2000,h_2000,c_limit/view-side-double-05_3200x.jpeg'
+        image='https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/044/179/359/original/693034_01.jpg.jpeg?action=crop&width=950'
     )
 
     db.session.add(house1)

@@ -3,6 +3,7 @@ from .users import seed_users, undo_users
 from .products import seed_products, undo_products
 from .cart_items import seed_cart_items, undo_cart_items
 from .orders import seed_orders, undo_orders
+# from app.models import User
 
 from app.models.db import db, environment, SCHEMA
 
@@ -24,10 +25,14 @@ def seed():
         undo_products()
         undo_users()
     seed_users()
+    # Add other seed functions here
     seed_products()
     seed_cart_items()
     seed_orders()
-    # Add other seed functions here
+    # Testing on delete cascade.
+    # user = User.query.get(1)
+    # db.session.delete(user)
+    # db.session.commit()
 
 
 # Creates the `flask seed undo` command
