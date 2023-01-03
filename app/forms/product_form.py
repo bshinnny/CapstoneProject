@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, DateField, FloatField, BooleanField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, ValidationError
 
 def name_length(form, field):
     name = field.data

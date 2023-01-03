@@ -1,0 +1,17 @@
+.user-products-header {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.user-product-card-div {
+    height: fit-content;
+    border: 1px solid lightslategray;
+    margin: 10px;
+    padding: 10px;
+}
+
+.user-products-btn-div {
+    display: flex;
+    justify-content: space-around;
+}

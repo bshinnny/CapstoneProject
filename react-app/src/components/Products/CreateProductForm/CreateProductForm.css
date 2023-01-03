@@ -1,0 +1,10 @@
+.create-product-form-cont {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.product-input-field {
+    display: flex;
+    flex-direction: column;
+}

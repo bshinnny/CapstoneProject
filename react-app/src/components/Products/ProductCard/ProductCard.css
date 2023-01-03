@@ -1,0 +1,37 @@
+.product-card-cont {
+    display: flex;
+}
+
+.product-link {
+    text-decoration: none;
+}
+
+.product-card {
+    width: 225px;
+    height: 330px;
+    padding: 10px;
+    display: grid;
+    grid-template-areas:
+    'image'
+    'details';
+}
+
+.product-card-image {
+    height: 200px;
+    width: 200px;
+    max-width: 100%;
+    object-fit: contain;
+    grid-area: image;
+}
+
+.product-card-info {
+    height: 100px;
+    grid-area: details;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* .product-card-price {
+    grid-area: price;
+} */

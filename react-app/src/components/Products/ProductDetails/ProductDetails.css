@@ -1,0 +1,139 @@
+.product-details-cont {
+    /* border: 1px solid red; */
+    width: 95vw;
+    display: flex;
+    justify-content: space-between;
+    /* margin: 20px; */
+}
+
+/* .product-details-image-div {
+    border: 1px solid blue;
+} */
+
+.product-details-image {
+    height: 30vw;
+    width: 30vw;
+    max-width: 100%;
+    object-fit: contain;
+    border: 1px solid lightslategray;
+    padding: 10px
+}
+
+.product-info {
+    width: 35vw;
+    margin-left: 15px;
+}
+
+.product-info-header {
+    border-bottom: 1px solid lightslategray;
+}
+
+.product-info-name {
+    margin: 0;
+}
+
+.product-info-brand {
+    margin-top: 15px;
+}
+
+.product-info-reviews {
+    margin-top: 10px;
+}
+
+.amazon-choice {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: italic;
+    color: rgb(216, 159, 52);
+    background-color: rgb(15, 15, 112);
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 5px;
+    border-radius: 5px;
+}
+
+.product-info-price {
+    margin-top: 10px;
+    display: flex;
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightslategray;
+}
+
+.price-dollar-sign {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.price-dollar {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.price-cent {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.product-info-details {
+    display: flex;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightslategray;
+}
+
+.product-info-details-half {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.product-info-details-bold {
+    font-weight: bold;
+}
+
+.product-info-description {
+    margin-top: 10px;
+}
+
+.product-details-atc {
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 25vw;
+    margin-left: 15px;
+    /* padding: 10px; */
+}
+
+.product-info-price-atc {
+    display: flex;
+    margin: 10px 0px 10px 10px;
+}
+
+.price-dollar-sign-atc {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.price-dollar-atc {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.price-cent-atc {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.product-details-atc-text {
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.product-details-atc-stock {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: larger;
+    color: green;
+}
