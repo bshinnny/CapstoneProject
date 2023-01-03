@@ -1,6 +1,9 @@
 const GET_ALL_PRODUCTS = 'products/GET_ALL_PRODUCTS';
 const GET_PRODUCT_DETAILS = 'products/GET_PRODUCT_DETAILS';
+const GET_USER_PRODUCTS = 'products/GET_USER_PRODUCTS';
 const CREATE_A_PRODUCT = 'products/CREATE_A_PRODUCT';
+const EDIT_A_PRODUCT = 'products/EDIT_A_PRODUCT';
+const DELETE_A_PRODUCT = 'products/DELETE_A_PRODUCT';
 
 // ACTIONS
 export const getAllProducts = (products) => {
@@ -17,10 +20,31 @@ export const getProductDetails = (product) => {
     }
 }
 
+export const getUserProducts = (products) => {
+    return {
+        type: GET_USER_PRODUCTS,
+        products
+    }
+}
+
 export const createAProduct = (product) => {
     return {
         type: CREATE_A_PRODUCT,
         product
+    }
+}
+
+export const editAProduct = (product) => {
+    return {
+        type: EDIT_A_PRODUCT,
+        product
+    }
+}
+
+export const deleteAProduct = (productId) => {
+    return {
+        type: DELETE_A_PRODUCT,
+        productId
     }
 }
 
@@ -45,6 +69,16 @@ export const getProductDetailsThunk = (productId) => async dispatch => {
     }
 }
 
+export const getUserProductsThunk = () => async dispatch => {
+    const response = await fetch('/api/products/current');
+
+    if (response.ok) {
+        const products = await response.json();
+        dispatch(getUserProducts(products));
+        return response;
+    }
+}
+
 export const createAProductThunk = (product) =>  async dispatch => {
     const response = await fetch(`/api/products`, {
         method: 'POST',
@@ -56,6 +90,30 @@ export const createAProductThunk = (product) =>  async dispatch => {
         const product = await response.json();
         dispatch(createAProduct(product))
         return product;
+    }
+}
+
+export const editAProductThunk = (product, productId) => async dispatch => {
+    const response = await fetch(`/api/products/${productId}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(product)
+    })
+
+    if (response.ok) {
+        const product = await response.json();
+        dispatch(editAProduct(product))
+        return product;
+    }
+}
+
+export const deleteAProductThunk = (productId) => async dispatch => {
+    const response = await fetch(`/api/products/${productId}`, {
+        method: 'DELETE'
+    })
+
+    if (response.ok) {
+        dispatch(deleteAProduct(productId))
     }
 }
 
@@ -71,6 +129,7 @@ const formatData = (array) => {
 // REDUCER
 const initialState = {
     allProducts: {},
+    userProducts: {},
     productDetails: {}
 }
 
@@ -89,6 +148,21 @@ export default function productsReducer(state= initialState, action) {
         case GET_PRODUCT_DETAILS:
             const productDetails = action.product;
             newState = {...state, productDetails};
+            return newState;
+        case GET_USER_PRODUCTS:
+            const userProductsArr = action.products.Products;
+            const userProductsObj = formatData(userProductsArr);
+            newState = {...state, userProducts: userProductsObj};
+            return newState;
+        case EDIT_A_PRODUCT:
+            newState = {...state, allProducts: {...state.allProducts}, userProducts: {...state.userProducts}};
+            newState.allProducts[action.product.id] = action.product;
+            newState.userProducts[action.product.id] = action.product;
+            return newState;
+        case DELETE_A_PRODUCT:
+            newState = {...state, allProducts: {...state.allProducts}, userProducts: {...state.userProducts}};
+            delete newState.allProducts[action.productId];
+            delete newState.userProducts[action.productId];
             return newState;
         default:
             return state;
