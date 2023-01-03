@@ -12,7 +12,7 @@ function ProductCard({ product }) {
                     <img src={product.imageUrl} alt={product.name} className='product-card-image'></img>
                     <div className='product-card-info'>
                         <div className='product-card-name'>{product.name}</div>
-                        <div className='product-card-price'>{`$${product.price}`}</div>
+                        <div className='product-card-price'>{`$${Number(product.price).toFixed(2)}`}</div>
                     </div>
                 </div>
             </NavLink>

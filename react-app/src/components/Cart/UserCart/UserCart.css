@@ -1,0 +1,17 @@
+.user-cart-container {
+    display: flex;
+    width: 95vw;
+    height: fit-content;
+    /* border: 1px solid red; */
+}
+
+.cart-items-div {
+    width: 70vw;
+    /* border: 1px solid green; */
+}
+
+.cart-items-header {
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightslategray;
+}

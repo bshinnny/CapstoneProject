@@ -88,7 +88,7 @@ export const createAProductThunk = (product) =>  async dispatch => {
 
     if (response.ok) {
         const product = await response.json();
-        dispatch(createAProduct(product))
+        dispatch(createAProduct(product));
         return product;
     }
 }
@@ -102,7 +102,7 @@ export const editAProductThunk = (product, productId) => async dispatch => {
 
     if (response.ok) {
         const product = await response.json();
-        dispatch(editAProduct(product))
+        dispatch(editAProduct(product));
         return product;
     }
 }
@@ -113,7 +113,7 @@ export const deleteAProductThunk = (productId) => async dispatch => {
     })
 
     if (response.ok) {
-        dispatch(deleteAProduct(productId))
+        dispatch(deleteAProduct(productId));
     }
 }
 

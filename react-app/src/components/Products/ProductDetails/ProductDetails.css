@@ -44,7 +44,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     font-style: italic;
-    color: rgb(216, 159, 52);
+    color: rgb(255, 192, 46);
     background-color: rgb(15, 15, 112);
     display: flex;
     width: fit-content;
@@ -122,6 +122,7 @@
 .price-cent-atc {
     margin-top: 5px;
     font-weight: bold;
+    height: fit-content;
 }
 
 .product-details-atc-text {
@@ -136,4 +137,48 @@
     font-weight: bold;
     font-size: larger;
     color: green;
+}
+
+.product-details-atc-btn-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-details-atc-btn {
+    margin-bottom: 10px;
+    height: 25px;
+    width: 160px;
+    background-color: rgb(255, 192, 46);
+    border: none;
+    border-radius: 10px;
+}
+
+.product-details-atc-btn-delete {
+    margin-bottom: 10px;
+    height: 25px;
+    width: 160px;
+    background-color: rgb(245, 147, 8);
+    border: none;
+    border-radius: 10px;
+}
+
+.product-details-atc-text-blue {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.product-details-atc-prime {
+    display: flex;
+    justify-content: center;
+}
+
+.product-details-atc-prime-text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 200px;
+    border: 1px solid lightslategray;
+    border-radius: 10px;
 }
