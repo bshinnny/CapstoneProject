@@ -39,7 +39,7 @@ def url_length(form, field):
 
 class ProductForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired(), name_length])
-    price = IntegerField("Price", validators=[DataRequired()])
+    price = FloatField("Price", validators=[DataRequired()])
     brand = StringField("Brand", validators=[DataRequired(), brand_length])
     description = StringField("Description", validators=[DataRequired(), description_length])
     length = FloatField("Length", validators=[DataRequired()])
@@ -56,7 +56,7 @@ class ProductForm(FlaskForm):
 
 class UpdateProductForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired(), name_length])
-    price = IntegerField("Price", validators=[DataRequired()])
+    price = FloatField("Price", validators=[DataRequired()])
     brand = StringField("Brand", validators=[DataRequired(), brand_length])
     description = StringField("Description", validators=[DataRequired(), description_length])
     length = FloatField("Length", validators=[DataRequired()])

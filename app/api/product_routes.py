@@ -130,9 +130,18 @@ def delete_product(product_id):
         return {'errors': 'Product not found.'}, 404
 
     if not current_user_id == product.user_id:
-        return {'errors': 'You are not authorized to edit this product.'}, 401
+        return {'errors': 'You are not authorized to delete this product.'}, 401
 
     db.session.delete(product)
     db.session.commit()
 
     return {'message': 'Product was removed from the catalog.'}
+
+# GET all products in a category.
+@product_routes.route('/cat/<category>')
+def get_all_products_cat(category):
+    """
+    Get all products from a category and returns them in a list of product dictionaries.
+    """
+    products = Product.query.filter(Product.category == category.capitalize()).all()
+    return {'Products': [product.to_dict() for product in products]}

@@ -1,5 +1,6 @@
 .create-product-form-cont {
     width: 100vw;
+    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
 }

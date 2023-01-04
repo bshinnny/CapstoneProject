@@ -32,6 +32,11 @@
     justify-content: flex-start;
 }
 
+.product-card-name {
+    width: 220px;
+    overflow-wrap: break-word;
+}
+
 /* .product-card-price {
     grid-area: price;
 } */

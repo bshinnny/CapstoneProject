@@ -13,6 +13,7 @@ import CreateProductForm from './components/Products/CreateProductForm';
 import ProductDetails from './components/Products/ProductDetails';
 import UserProducts from './components/Products/UserProducts';
 import EditProductForm from './components/Products/EditProductForm';
+import UserCart from './components/Cart/UserCart';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -53,6 +54,9 @@ function App() {
         </Route>
         <ProtectedRoute path='/products/:productId/edit' exact={true}>
           <EditProductForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/cart' exact={true}>
+          <UserCart />
         </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
