@@ -31,9 +31,9 @@ function CreateProductForm() {
 
         const errors = [];
 
-        if (name.length > 254) errors.push('Name must be less than 255 characters.');
+        if (name.length > 149) errors.push('Name must be less than 150 characters.');
         if (price < 0.99 || price > 9999.99) errors.push('Price must be between $1 and $10,000.');
-        if (brand.length > 254) errors.push('Brand must be less than 255 characters.');
+        if (brand.length > 29) errors.push('Brand must be less than 30 characters.');
         if (description.length > 254) errors.push('Description must be less than 255 characters.');
         if (length.length < 1 || length.length > 1000) errors.push('Length must be between 1 inch and 1000 inches.');
         if (width.length < 1 || width.length > 1000) errors.push('Width must be between 1 inch and 1000 inches.');

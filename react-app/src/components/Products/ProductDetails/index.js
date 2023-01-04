@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import * as productActions from '../../../store/products';
+import * as cartActions from '../../../store/cart';
 import './ProductDetails.css'
 
 function ProductDetails() {
     const dispatch = useDispatch();
-    // const history = useHistory();
+    const history = useHistory();
     const { productId } = useParams();
 
     useEffect(() => {
@@ -14,6 +15,35 @@ function ProductDetails() {
     }, [dispatch, productId])
 
     const product = useSelector(state => state.products.productDetails);
+    const user = useSelector(state => state.session.user);
+
+    // if (user) {
+    //     useEffect(() => {
+    //         dispatch(cartActions.getUserCartThunk())
+    //     }, [dispatch, user])
+    //     const cart = useSelector(state => state.cart.userCart);
+
+    // }
+
+
+    const dispatchAtc = (e) => {
+        if (user) {
+            e.preventDefault();
+            dispatch(cartActions.addCartItemThunk(product.id))
+        }
+        else return;
+    }
+
+    const dispatchEdit = (e) => {
+        e.preventDefault();
+        history.push(`/products/${productId}/edit`)
+    }
+
+    const dispatchDelete = (e) => {
+        e.preventDefault();
+        dispatch(productActions.deleteAProductThunk(product.id));
+        history.push(`/products/user`);
+    }
 
     const dollarAmt = Math.floor(product.price);
     const centAmt = (product.price - dollarAmt).toPrecision(2) * 100;
@@ -68,6 +98,22 @@ function ProductDetails() {
                 <div className='product-details-atc-text'>FREE Returns!</div>
                 <div className='product-details-atc-text'>{`Free 2 day delivery by ${dateStr} with Branazon Prime!`}</div>
                 <div className='product-details-atc-stock'>In Stock.</div>
+                {!user && <div className='product-details-atc-btn-div'>
+                    Please login to add to your cart.
+                </div>}
+                {user && product.userId !== user.id && <div className='product-details-atc-btn-div'>
+                    <button className='product-details-atc-btn' onClick={dispatchAtc}>Add to Cart</button>
+                </div>}
+                {user && product.userId === user.id && <div className='product-details-atc-btn-div'>
+                    <button className='product-details-atc-btn' onClick={dispatchEdit}>Edit This Listing</button>
+                    <button className='product-details-atc-btn-delete' onClick={dispatchDelete}>Delete This Listing</button>
+                </div>}
+                <div className='product-details-atc-text'>Ships from Branazon.</div>
+                <div className='product-details-atc-text'>{`Sold by ${product.brand}.`}</div>
+                <div className='product-details-atc-text-blue'>Eligible for return, refund, or replacement within 30 days of receipt.</div>
+                <div className='product-details-atc-prime'>
+                    <div className='product-details-atc-prime-text'>Enjoy fast, FREE delivery, exclusive deals and award-winning movies & TV shows with Prime.</div>
+                </div>
             </div>
         </div>
     )
