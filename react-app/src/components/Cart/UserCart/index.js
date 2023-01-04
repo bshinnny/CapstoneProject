@@ -8,6 +8,19 @@ function UserCart() {
     const dispatch = useDispatch();
     const cartItems = useSelector(state => state.cart.userCart)
 
+    const cartItemsArr = Object.values(cartItems);
+
+    let quantityTotal = 0;
+    let subTotal = 0;
+    for (let i = 0; i < cartItemsArr.length; i++) {
+        quantityTotal += cartItemsArr[i].quantity;
+        if (cartItemsArr[i].quantity > 1) {
+            subTotal += cartItemsArr[i].Product.price * cartItemsArr[i].quantity;
+        } else {
+            subTotal += cartItemsArr[i].Product.price
+        }
+    }
+
     useEffect(() => {
         dispatch(cartActions.getUserCartThunk())
     }, [dispatch])
@@ -21,6 +34,11 @@ function UserCart() {
                         <CartItemCard key={`cart-item-${item.id}`} item={item}/>
                     )
                 })}
+                <div className='user-cart-totals'>
+                    <div className='subtotal-price'>
+                        {`Subtotal (${quantityTotal} Items): ${Number(subTotal).toFixed(2)}`}
+                    </div>
+                </div>
             </div>
         </div>
     )

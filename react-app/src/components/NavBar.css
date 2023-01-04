@@ -39,7 +39,6 @@
     /* position: absolute; */
     right: 0;
     top: 0;
-
 }
 
 .nav-bar-profile-button {
@@ -66,4 +65,19 @@
 .dropdown-nl {
     text-decoration: none;
     color: black;
+}
+
+.nav-bar-profile-cart-div-no-user {
+    display: flex;
+    margin-right: 2.5vw;
+    /* position: absolute; */
+    right: 0;
+    top: 0;
+    width: 120px;
+    justify-content: space-between;
+}
+
+.nav-bar-link {
+    text-decoration: none;
+    color: white;
 }

@@ -17,6 +17,15 @@ function ProductDetails() {
     const product = useSelector(state => state.products.productDetails);
     const user = useSelector(state => state.session.user);
 
+    // if (user) {
+    //     useEffect(() => {
+    //         dispatch(cartActions.getUserCartThunk())
+    //     }, [dispatch, user])
+    //     const cart = useSelector(state => state.cart.userCart);
+
+    // }
+
+
     const dispatchAtc = (e) => {
         if (user) {
             e.preventDefault();

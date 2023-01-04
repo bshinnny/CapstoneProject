@@ -62,50 +62,23 @@ const NavBar = () => {
                 )}
             </div>
             :
-            <div className='nav-bar-cont-no-user'>
+            <div className='nav-bar-cont-user'>
                 <div className='nav-bar-logo-div'>
                     <NavLink className='nav-bar-logo-nl' exact to='/products'>
                         <img className='logo' alt='branazon-logo' src={Logo}></img>
                         <h1 className='nav-bar-heading'>Branazon</h1>
                     </NavLink>
                 </div>
-                <div className='nav-bar-profile-cart-div'>
-                    <NavLink to='/sign-up' exact={true} activeClassName='active'>
+                <div className='nav-bar-profile-cart-div-no-user'>
+                    <NavLink to='/sign-up' exact={true} activeClassName='active' className='nav-bar-link'>
                         Sign Up
                     </NavLink>
-                    <NavLink to='/login' exact={true} activeClassName='active'>
+                    <NavLink to='/login' exact={true} activeClassName='active' className='nav-bar-link'>
                        Login
                     </NavLink>
                 </div>
             </div>}
         </nav>
-        // <nav>
-        //     <ul>
-        //         <li>
-        //             <NavLink to='/' exact={true} activeClassName='active'>
-        //                 Home
-        //             </NavLink>
-        //         </li>
-        //         <li>
-        //             <NavLink to='/login' exact={true} activeClassName='active'>
-        //                 Login
-        //             </NavLink>
-        //         </li>
-        //         <li>
-        //             <NavLink to='/sign-up' exact={true} activeClassName='active'>
-        //                 Sign Up
-        //             </NavLink>
-        //         </li>
-        //         <li>
-        //             <NavLink to='/users' exact={true} activeClassName='active'>
-        //                 Users
-        //             </NavLink>
-        //         </li>
-        //         <li>
-        //               <LogoutButton />
-        //         </li>
-        //     </ul>
-        // </nav>
   );
 }
 

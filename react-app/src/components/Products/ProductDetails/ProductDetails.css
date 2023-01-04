@@ -31,6 +31,7 @@
 
 .product-info-name {
     margin: 0;
+    overflow-wrap: break-word;
 }
 
 .product-info-brand {
@@ -95,6 +96,7 @@
 
 .product-info-description {
     margin-top: 10px;
+    overflow-wrap: break-word;
 }
 
 .product-details-atc {

@@ -103,6 +103,7 @@ export const editAProductThunk = (product, productId) => async dispatch => {
     if (response.ok) {
         const product = await response.json();
         dispatch(editAProduct(product));
+        console.log(product)
         return product;
     }
 }

@@ -4,15 +4,33 @@
     margin: 1vw 2.5vw;
     height: fit-content;
     /* border: 1px solid red; */
+    /* background-color: lightslategray; */
 }
 
 .cart-items-div {
     width: 70vw;
-    /* border: 1px solid green; */
+    /* padding-bottom: 20px; */
+    /* border-bottom: 1px solid lightslategray; */
 }
 
 .cart-items-header {
     width: 100%;
     padding-bottom: 10px;
     border-bottom: 1px solid lightslategray;
+}
+
+.user-cart-totals {
+    width: 70vw;
+    /* border-top: 1px solid lightslategray; */
+    border-top: 1px solid lightslategray;
+    padding-top: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.subtotal-price {
+    font-weight: bolder;
+    font-size: larger;
+    margin-right: 20px;
 }
