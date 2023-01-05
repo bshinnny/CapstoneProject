@@ -39,7 +39,7 @@ const NavBar = () => {
             {user ?
             <div className='nav-bar-cont-user'>
                 <div className='nav-bar-logo-div'>
-                    <NavLink className='nav-bar-logo-nl' exact to='/products'>
+                    <NavLink className='nav-bar-logo-nl' exact to='/'>
                         <img className='logo' alt='branazon-logo' src={Logo}></img>
                         <h1 className='nav-bar-heading'>Branazon</h1>
                     </NavLink>

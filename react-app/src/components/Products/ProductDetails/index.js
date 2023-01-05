@@ -1,14 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import * as productActions from '../../../store/products';
 import * as cartActions from '../../../store/cart';
+import ErrorImg from '../../../images/unhappy.jpeg'
 import './ProductDetails.css'
 
 function ProductDetails() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { productId } = useParams();
+    const [errors, setErrors] = useState([]);
 
     useEffect(() => {
         dispatch(productActions.getProductDetailsThunk(productId))
@@ -26,12 +28,14 @@ function ProductDetails() {
     // }
 
 
-    const dispatchAtc = (e) => {
-        if (user) {
-            e.preventDefault();
-            dispatch(cartActions.addCartItemThunk(product.id))
+    const dispatchAtc = async (e) => {
+        e.preventDefault();
+        const data = await dispatch(cartActions.addCartItemThunk(product.id));
+        if (data) {
+            setErrors(data);
+            // console.log(errors);
+            // return;
         }
-        else return;
     }
 
     const dispatchEdit = (e) => {
@@ -54,7 +58,7 @@ function ProductDetails() {
 
     return (
         <div className='product-details-cont'>
-            <img src={product.imageUrl} alt={product.name} className='product-details-image'></img>
+            <img src={product.imageUrl} alt={product.name} className='product-details-image' onError={e => { e.currentTarget.src = ErrorImg}}></img>
             <div className='product-info'>
                 <div className='product-info-header'>
                     <h2 className='product-info-name'>{product.name}</h2>
@@ -99,9 +103,14 @@ function ProductDetails() {
                 <div className='product-details-atc-text'>{`Free 2 day delivery by ${dateStr} with Branazon Prime!`}</div>
                 <div className='product-details-atc-stock'>In Stock.</div>
                 {!user && <div className='product-details-atc-btn-div'>
-                    Please login to add to your cart.
+                    <div style={{ marginBottom: '10px'}}>Please login to add to your cart.</div>
                 </div>}
                 {user && product.userId !== user.id && <div className='product-details-atc-btn-div'>
+                    {errors.length > 0 && <div>
+                    {errors.map((error, ind) => (
+                        <div className='product-details-atc-text' key={ind}>{error}</div>
+                    ))}
+                    </div>}
                     <button className='product-details-atc-btn' onClick={dispatchAtc}>Add to Cart</button>
                 </div>}
                 {user && product.userId === user.id && <div className='product-details-atc-btn-div'>

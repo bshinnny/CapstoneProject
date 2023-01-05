@@ -63,6 +63,8 @@ def post_cart_item(product_id):
 
     for instance in existing_cart_items:
         if instance.product_id == product_id:
+            if instance.quantity == 5:
+                return {'errors': ['Max quantity per item is 5.']}, 401
             instance.quantity = instance.quantity + 1
             db.session.commit()
 

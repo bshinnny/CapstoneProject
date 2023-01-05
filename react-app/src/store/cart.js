@@ -75,7 +75,14 @@ export const addCartItemThunk = (productId) => async dispatch => {
     if (response.ok) {
         const cartItem = await response.json();
         dispatch(addCartItem(cartItem));
-        return cartItem;
+        return;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+          return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     }
 }
 
