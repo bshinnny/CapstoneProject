@@ -189,3 +189,20 @@
 .clickable:hover {
     cursor: pointer;
 }
+
+.pd-suggested {
+    width: 95vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* justify-self: center; */
+    margin: 30px 2.5vw;
+}
+
+.pd-suggested-card-div {
+    margin-top: 10px;
+    width: 90vw;
+    display: flex;
+    justify-content: space-around;
+    overflow-x: scroll;
+}
