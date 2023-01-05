@@ -102,7 +102,7 @@ def seed_products():
         name="Jordan 1 Lost & Found",
         price=210.00,
         brand="Nike",
-        description="A lost & found remake of the classic Air Jordan 1 from 1985",
+        description="A lost & found remake of the classic Air Jordan 1 from 1985.",
         length=12.0,
         width=4.0,
         height=5.0,
@@ -118,7 +118,7 @@ def seed_products():
         name="Jordan 3 X A Ma Maniere",
         price=210.00,
         brand="Nike",
-        description="Jordan's most sought after collaboration with A Ma Maniere",
+        description="Jordan's most sought after collaboration with A Ma Maniere.",
         length=12.0,
         width=4.0,
         height=5.0,
@@ -134,16 +134,64 @@ def seed_products():
         name="New Balance 550 Aime Leon Dore",
         price=210.00,
         brand="New Balance",
-        description="New Balance's most sought after collaboration with Aime Leon Dore",
-        length=12.0,
+        description="New Balance's most sought after collaboration with Aime Leon Dore.",
+        length=12.1,
         width=4.0,
-        height=5.0,
-        weight=2,
+        height=5.1,
+        weight=2.1,
         color='N/A',
         category='Fashion',
         asin='C111132323',
         prime=True,
         image='https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/044/179/359/original/693034_01.jpg.jpeg?action=crop&width=950'
+    )
+    other1 = Product(
+        user_id=3,
+        name="AROEVE Air Purifiers for Large Room Up to 1095 Sq Ft Coverage with Air Quality Sensors H13 True HEPA Filter",
+        price=129.90,
+        brand="AROEVE",
+        description="Equiped with H13 True HEPA Filter and high-efficiency filter system, our air cleaner can easily filter particles in the air.",
+        length=12.0,
+        width=4.0,
+        height=5.0,
+        weight=2,
+        color='N/A',
+        category='Other',
+        asin='C111132323',
+        prime=True,
+        image='https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/81V4scrfXsL._AC_SX679_.jpg'
+    )
+    other2 = Product(
+        user_id=3,
+        name="Lightweight Super Soft Easy Care Microfiber Bed Sheet Set with 14-Inch Deep Pockets",
+        price=29.90,
+        brand="Basics",
+        description="Super soft and durable polyester microfiber (85 GSM) fabric offers all-season comfort and resists wrinkles and fading.",
+        length=12.0,
+        width=4.0,
+        height=5.0,
+        weight=2,
+        color='White',
+        category='Other',
+        asin='C111132323',
+        prime=True,
+        image='https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/51vdF7fqxsL._AC_SX679_.jpg'
+    )
+    other3 = Product(
+        user_id=3,
+        name="Kindle (2022 Release) Lightest and most compact Kindle",
+        price=99.90,
+        brand="Amazon",
+        description="Super soft and durable polyester microfiber (85 GSM) fabric offers all-season comfort and resists wrinkles and fading.",
+        length=12.0,
+        width=4.0,
+        height=5.0,
+        weight=1.1,
+        color='Blue',
+        category='Other',
+        asin='C111132323',
+        prime=True,
+        image='https://m.media-amazon.com/images/W/WEBP_402378-T1/images/I/71dFhAIwENL._AC_SX679_.jpg'
     )
 
     db.session.add(house1)
@@ -155,6 +203,9 @@ def seed_products():
     db.session.add(shoes1)
     db.session.add(shoes2)
     db.session.add(shoes3)
+    db.session.add(other1)
+    db.session.add(other2)
+    db.session.add(other3)
     db.session.commit()
 
 def undo_products():
