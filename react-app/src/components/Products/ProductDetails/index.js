@@ -100,7 +100,7 @@ function ProductDetails() {
                 <div className='product-details-atc-text'>{`Free 2 day delivery by ${dateStr} with Branazon Prime!`}</div>
                 <div className='product-details-atc-stock'>In Stock.</div>
                 {!user && <div className='product-details-atc-btn-div'>
-                    Please login to add to your cart.
+                    <div style={{ marginBottom: '10px'}}>Please login to add to your cart.</div>
                 </div>}
                 {user && product.userId !== user.id && <div className='product-details-atc-btn-div'>
                     <button className='product-details-atc-btn' onClick={dispatchAtc}>Add to Cart</button>
