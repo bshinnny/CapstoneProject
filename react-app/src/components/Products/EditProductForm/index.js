@@ -60,13 +60,13 @@ function EditProductForm() {
         if (price < 0.99 || price > 9999.99) errors.push('Price must be between $1 and $10,000.');
         if (brand.length > 29) errors.push('Brand must be less than 30 characters.');
         if (description.length > 254) errors.push('Description must be less than 255 characters.');
-        if (length.length < 1 || length.length > 1000) errors.push('Length must be between 1 inch and 1000 inches.');
-        if (width.length < 1 || width.length > 1000) errors.push('Width must be between 1 inch and 1000 inches.');
-        if (height.length < 1 || height.length > 1000) errors.push('Height must be between 1 inch and 1000 inches.');
-        if (weight.length < 1 || weight.length > 1000) errors.push('Weight must be between 1 inch and 1000 pounds.');
+        if (length < 1 || length > 1000) errors.push('Length must be between 1 inch and 1000 inches.');
+        if (width < 1 || width > 1000) errors.push('Width must be between 1 inch and 1000 inches.');
+        if (height < 1 || height > 1000) errors.push('Height must be between 1 inch and 1000 inches.');
+        if (weight < 1 || weight > 1000) errors.push('Weight must be between 1 inch and 1000 pounds.');
         if (color.length > 29) errors.push('Color must be less than 30 characters.');
         if (category.length > 39) errors.push('Category must be less than 40 characters.');
-        if (asin.length > 39) errors.push('ASIN must be less than 30 characters.');
+        if (asin.length > 19) errors.push('ASIN must be less than 20 characters.');
         if (image.length > 254) errors.push('Image URL must be less than 255 characters.');
         // Need to add validation for .jpg, .png ending.
 

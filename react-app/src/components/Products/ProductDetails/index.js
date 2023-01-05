@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import * as productActions from '../../../store/products';
 import * as cartActions from '../../../store/cart';
+import ErrorImg from '../../../images/unhappy.jpeg'
 import './ProductDetails.css'
 
 function ProductDetails() {
@@ -54,7 +55,7 @@ function ProductDetails() {
 
     return (
         <div className='product-details-cont'>
-            <img src={product.imageUrl} alt={product.name} className='product-details-image'></img>
+            <img src={product.imageUrl} alt={product.name} className='product-details-image' onError={e => { e.currentTarget.src = ErrorImg}}></img>
             <div className='product-info'>
                 <div className='product-info-header'>
                     <h2 className='product-info-name'>{product.name}</h2>

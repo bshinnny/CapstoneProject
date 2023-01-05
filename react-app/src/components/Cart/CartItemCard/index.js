@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import * as cartActions from '../../../store/cart';
+import ErrorImg from '../../../images/unhappy.jpeg'
 import './CartItemCard.css'
 
 function CartItemCard({ item }) {
@@ -16,7 +17,7 @@ function CartItemCard({ item }) {
 
     return (
         <div className='cart-item-cont'>
-            <img src={item.Product.imageUrl} alt={item.Product.name} className='cart-item-image'></img>
+            <img src={item.Product.imageUrl} alt={item.Product.name} className='cart-item-image' onError={e => { e.currentTarget.src = ErrorImg}}></img>
             <div className='cart-item-info'>
                 <NavLink className='cart-item-link' to={`/products/${item.Product.id}`} key={`product-${item.Product.id}`}>
                     <h3 className='cart-item-header'>{item.Product.name}</h3>
