@@ -17,6 +17,7 @@ import UserCart from './components/Cart/UserCart';
 import SplashPage from './components/SplashPage';
 import CategoryProducts from './components/Products/CategoryProducts';
 import ThankYou from './components/Orders/ThankYou';
+import CategoriesBar from './components/CategoriesBar';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -36,6 +37,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <CategoriesBar />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />

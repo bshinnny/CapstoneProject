@@ -45,10 +45,9 @@ const NavBar = () => {
                     </NavLink>
                 </div>
                 <div className='nav-bar-profile-cart-div'>
-                    <button className='nav-bar-cart-button' onClick={openCart}>CART</button>
-                    <button className='nav-bar-profile-button' onClick={handleDropdown}>
+                    <button className='nav-bar-cart-button clickable' onClick={openCart}><i className="fa-solid fa-cart-shopping 3xl"></i></button>
+                    <button className='nav-bar-profile-button clickable' onClick={handleDropdown}>
                         <div>Profile Details</div>
-                        <i className="fa-solid fa-circle-chevron-down"></i>
                     </button>
                 </div>
                 {showDropdown && (

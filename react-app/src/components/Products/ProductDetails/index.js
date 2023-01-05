@@ -117,8 +117,8 @@ function ProductDetails() {
                     <button className='product-details-atc-btn' onClick={dispatchAtc}>Add to Cart</button>
                 </div>}
                 {user && product.userId === user.id && <div className='product-details-atc-btn-div'>
-                    <button className='product-details-atc-btn' onClick={dispatchEdit}>Edit This Listing</button>
-                    <button className='product-details-atc-btn-delete' onClick={dispatchDelete}>Delete This Listing</button>
+                    <button className='product-details-atc-btn clickable' onClick={dispatchEdit}>Edit This Listing</button>
+                    <button className='product-details-atc-btn-delete clickable' onClick={dispatchDelete}>Delete This Listing</button>
                 </div>}
                 <div className='product-details-atc-text'>Ships from Branazon.</div>
                 <div className='product-details-atc-text'>{`Sold by ${product.brand}.`}</div>
