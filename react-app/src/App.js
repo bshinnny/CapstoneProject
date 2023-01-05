@@ -14,6 +14,8 @@ import ProductDetails from './components/Products/ProductDetails';
 import UserProducts from './components/Products/UserProducts';
 import EditProductForm from './components/Products/EditProductForm';
 import UserCart from './components/Cart/UserCart';
+import SplashPage from './components/SplashPage';
+import CategoryProducts from './components/Products/CategoryProducts';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -52,6 +54,9 @@ function App() {
         <Route path='/products/:productId' exact={true}>
           <ProductDetails />
         </Route>
+        <Route path='/products/category/:category' exact={true}>
+          <CategoryProducts />
+        </Route>
         <ProtectedRoute path='/products/:productId/edit' exact={true}>
           <EditProductForm />
         </ProtectedRoute>
@@ -65,7 +70,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <SplashPage />
         </Route>
       </Switch>
     </BrowserRouter>

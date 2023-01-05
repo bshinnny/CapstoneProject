@@ -12,6 +12,7 @@ function UserCart() {
 
     let quantityTotal = 0;
     let subTotal = 0;
+
     for (let i = 0; i < cartItemsArr.length; i++) {
         quantityTotal += cartItemsArr[i].quantity;
         if (cartItemsArr[i].quantity > 1) {
@@ -29,11 +30,13 @@ function UserCart() {
         <div className='user-cart-container'>
             <div className='cart-items-div'>
                 <h2 className='cart-items-header'>Shopping Cart</h2>
-                {Object.values(cartItems).map((item) => {
+                {Object.values(cartItems).length ? Object.values(cartItems).map((item) => {
                     return (
                         <CartItemCard key={`cart-item-${item.id}`} item={item}/>
                     )
-                })}
+                }) :
+                <h2>Please add items to your cart to see them here.</h2>
+                }
                 <div className='user-cart-totals'>
                     <div className='subtotal-price'>
                         {`Subtotal (${quantityTotal} Items): ${Number(subTotal).toFixed(2)}`}

@@ -20,7 +20,10 @@ const LoginForm = () => {
 
   const demoLogin = async (e) => {
     e.preventDefault();
-    const data = await dispatch(login('demo@aa.io', 'password'))
+    const data = await dispatch(login('demo@aa.io', 'password'));
+    if (data) {
+      setErrors(data);
+    }
   }
 
   const updateEmail = (e) => {
@@ -45,14 +48,14 @@ const LoginForm = () => {
             <h3 style={{margin: '0 0 10px'}}>Create An Account</h3>
             <div>
               {errors.map((error, ind) => (
-                <div key={ind}>{error}</div>
+                <div key={ind}>{error.split(':')[1]}</div>
               ))}
             </div>
             <div className='auth-input-field'>
               <label htmlFor='email'>Email:</label>
               <input
                 name='email'
-                type='text'
+                type='email'
                 placeholder='Email'
                 value={email}
                 onChange={updateEmail}
