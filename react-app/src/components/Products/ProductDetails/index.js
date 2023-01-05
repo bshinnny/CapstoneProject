@@ -36,6 +36,9 @@ function ProductDetails() {
             // console.log(errors);
             // return;
         }
+        else {
+            history.push('/cart')
+        }
     }
 
     const dispatchEdit = (e) => {

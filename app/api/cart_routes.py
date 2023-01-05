@@ -14,6 +14,7 @@ def get_user_cart():
     """
     Get current user's cart.
     """
+    # print('CURRENT USER STREET ADDRESS:', current_user.street)
     current_user_id = current_user.id
     cart_items = CartItem.query.options(joinedload(CartItem.product)).filter(CartItem.user_id == current_user_id).all()
     def cart_item_to_dict(cart_item):
