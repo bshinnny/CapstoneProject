@@ -1,4 +1,5 @@
 .all-products-cont {
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
