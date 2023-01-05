@@ -29,11 +29,11 @@ function UserProducts() {
                         <div className='user-product-card-div'>
                             <ProductCard key={`product-${product.id}`} product={product}/>
                             <div className='user-products-btn-div'>
-                                <button className='user-products-btn' onClick={(e) => {
+                                <button className='user-products-btn clickable' onClick={(e) => {
                                     e.preventDefault();
                                     history.push(`/products/${product.id}/edit`)
                                 }}><i class="fa-solid fa-pen-to-square"></i></button>
-                                <button className='user-products-btn' onClick={(e) => {
+                                <button className='user-products-btn clickable' onClick={(e) => {
                                     e.preventDefault();
                                     dispatch(productActions.deleteAProductThunk(product.id));
                                     history.push(`/products/user`);

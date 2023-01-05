@@ -233,7 +233,7 @@ function CreateProductForm() {
                         value={prime}
                         checked={prime}
                         // required
-                        className='input'
+                        className='input clickable'
                     />
                 </div>
                 <div className='product-input-field'>
@@ -246,7 +246,7 @@ function CreateProductForm() {
                         className='input'
                     />
                 </div>
-                <button className='submit-button' type='submit'>Submit New Product</button>
+                <button className='submit-button clickable' type='submit'>Submit New Product</button>
             </form>
         </div>
     )
