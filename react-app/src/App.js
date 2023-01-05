@@ -16,6 +16,7 @@ import EditProductForm from './components/Products/EditProductForm';
 import UserCart from './components/Cart/UserCart';
 import SplashPage from './components/SplashPage';
 import CategoryProducts from './components/Products/CategoryProducts';
+import ThankYou from './components/Orders/ThankYou';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -62,6 +63,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/cart' exact={true}>
           <UserCart />
+        </ProtectedRoute>
+        <ProtectedRoute path='/orders' exact={true}>
+          <ThankYou />
         </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>

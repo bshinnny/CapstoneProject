@@ -1,7 +1,7 @@
 const GET_USER_CART = 'cart/GET_USER_CART';
 const EDIT_ITEM_QTY = 'cart/EDIT_ITEM_QTY';
 const DELETE_CART_ITEM = 'cart/DELETE_CART_ITEM';
-const ADD_CART_ITEM = 'cart/ADD_CART_ITEM'
+const ADD_CART_ITEM = 'cart/ADD_CART_ITEM';
 
 // ACTIONS
 export const getUserCart = (cartItems) => {
