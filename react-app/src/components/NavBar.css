@@ -39,12 +39,29 @@
     /* position: absolute; */
     right: 0;
     top: 0;
+    /* align-content: center; */
+}
+
+.nav-bar-cart-button {
+    height: 40px;
+    width: 40px;
+    /* font-size: larger; */
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+
+.nav-bar-cart-button:hover {
+    border: 1px solid white;
 }
 
 .nav-bar-profile-button {
     display: flex;
     /* width: fit-content; */
-
+    font-size: large;
+    align-items: center;
+    border-radius: 10px;
+    background-color: rgb(255, 192, 46);
 }
 
 .dropdown {

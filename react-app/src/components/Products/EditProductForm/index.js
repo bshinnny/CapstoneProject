@@ -255,7 +255,7 @@ function EditProductForm() {
                         value={prime}
                         checked={prime}
                         // required
-                        className='input'
+                        className='input clickable'
                     />
                 </div>
                 <div className='product-input-field'>
@@ -268,7 +268,7 @@ function EditProductForm() {
                         className='input'
                     />
                 </div>
-                <button className='submit-button' type='submit'>Submit Edited Product</button>
+                <button className='submit-button clickable' type='submit'>Submit Edited Product</button>
             </form>
         </div>
     )
