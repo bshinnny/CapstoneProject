@@ -1,4 +1,5 @@
 const GET_ALL_PRODUCTS = 'products/GET_ALL_PRODUCTS';
+const GET_PRODUCTS_CAT = 'products/GET_PRODUCTS_CAT';
 const GET_PRODUCT_DETAILS = 'products/GET_PRODUCT_DETAILS';
 const GET_USER_PRODUCTS = 'products/GET_USER_PRODUCTS';
 const CREATE_A_PRODUCT = 'products/CREATE_A_PRODUCT';
@@ -9,6 +10,13 @@ const DELETE_A_PRODUCT = 'products/DELETE_A_PRODUCT';
 export const getAllProducts = (products) => {
     return {
         type: GET_ALL_PRODUCTS,
+        products
+    }
+}
+
+export const getProductsByCat = (products) => {
+    return {
+        type: GET_PRODUCTS_CAT,
         products
     }
 }
@@ -55,6 +63,16 @@ export const getAllProductsThunk = () => async dispatch => {
     if (response.ok) {
         const products = await response.json();
         dispatch(getAllProducts(products));
+        return response;
+    }
+}
+
+export const getProductsByCatThunk = (category) => async dispatch => {
+    const response = await fetch(`/api/products/cat/${category}`);
+
+    if (response.ok) {
+        const products = await response.json();
+        dispatch(getProductsByCat(products));
         return response;
     }
 }
@@ -130,6 +148,7 @@ const formatData = (array) => {
 // REDUCER
 const initialState = {
     allProducts: {},
+    categoryProducts: {},
     userProducts: {},
     productDetails: {}
 }
@@ -141,6 +160,11 @@ export default function productsReducer(state= initialState, action) {
             const productsArr = action.products.Products;
             const productsObj = formatData(productsArr);
             newState = {...state, allProducts: productsObj};
+            return newState;
+        case GET_PRODUCTS_CAT:
+            const categoryProductsArr = action.products.Products;
+            const categoryProductsObj = formatData(categoryProductsArr);
+            newState = {...state, categoryProducts: categoryProductsObj};
             return newState;
         case CREATE_A_PRODUCT:
             newState = {...state, allProducts: {...state.allProducts}};
