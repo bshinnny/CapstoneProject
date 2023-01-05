@@ -204,6 +204,7 @@ function CreateProductForm() {
                         // type='text'
                         onChange={(e) => setCategory(e.target.value)}
                         value={category}
+                        required
                     >
                         <option value='' disabled>
                             Product Category
