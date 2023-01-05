@@ -34,7 +34,9 @@
 
 .product-card-name {
     width: 220px;
+    max-height: 105px;
     overflow-wrap: break-word;
+    overflow: scroll;
 }
 
 /* .product-card-price {
