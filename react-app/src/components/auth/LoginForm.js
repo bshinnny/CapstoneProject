@@ -45,7 +45,7 @@ const LoginForm = () => {
             <h2 className='auth-form-title'>Branazon</h2>
           </div>
           <div className='auth-input-div'>
-            <h3 style={{margin: '0 0 10px'}}>Create An Account</h3>
+            <h3 style={{margin: '0 0 10px'}}>Log In To Your Account</h3>
             <div>
               {errors.map((error, ind) => (
                 <div key={ind}>{error.split(':')[1]}</div>
