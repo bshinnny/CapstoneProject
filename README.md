@@ -20,6 +20,12 @@ Branazon is a full-stack clone of e-commerce giant, Amazon. Currently, Branazon 
 # Hosting
 - Render.com
 
+## Wiki Links
+- [Database Schema](https://github.com/bshinnny/CapstoneProject/wiki/Database-Schema)
+- [Features List](https://github.com/bshinnny/CapstoneProject/wiki/Features-List)
+- [User Stories](https://github.com/bshinnny/CapstoneProject/wiki/User-Stories)
+- [Wireframes](https://github.com/bshinnny/CapstoneProject/wiki/Wire-Frames)
+
 ## How to launch the full application locally?
 1. Clone this repository.
 
