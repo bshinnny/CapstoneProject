@@ -122,7 +122,7 @@ function ProductDetails() {
                             <div className='product-details-atc-text' key={ind}>{error}</div>
                         ))}
                         </div>}
-                        <button className='product-details-atc-btn' onClick={dispatchAtc}>Add to Cart</button>
+                        <button className='product-details-atc-btn clickable' onClick={dispatchAtc}>Add to Cart</button>
                     </div>}
                     {user && product.userId === user.id && <div className='product-details-atc-btn-div'>
                         <button className='product-details-atc-btn clickable' onClick={dispatchEdit}>Edit This Listing</button>
