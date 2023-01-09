@@ -101,7 +101,7 @@ const SignUpForm = () => {
                 required={true}
               ></input>
             </div>
-            <button className='auth-button' type='submit'>Sign Up</button>
+            <button className='auth-button clickable' type='submit'>Sign Up</button>
           </div>
         </form>
       </div>
