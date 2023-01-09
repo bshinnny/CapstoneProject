@@ -65,7 +65,7 @@ function UserCart() {
                     <div className='subtotal-price-checkout'>
                         {`Subtotal (${quantityTotal} Items): ${Number(subTotal).toFixed(2)}`}
                     </div>
-                    <button className='uc-order-btn' onClick={dispatchAddOrder}>Checkout</button>
+                    <button className='uc-order-btn clickable' onClick={dispatchAddOrder}>Checkout</button>
                 </div> :
                 <div className='uc-checkout-div'>Please add items to your cart in order to proceed to checkout.</div>}
             </div>

@@ -30,7 +30,7 @@ function CartItemCard({ item }) {
                         type='number'
                         onChange={(e) => setQuantity(e.target.value)}
                         value={quantity}
-                        className='cart-item-edit-qty'
+                        className='cart-item-edit-qty clickable'
                     >
                         <option value='' disabled>
                             Quantity
@@ -41,7 +41,7 @@ function CartItemCard({ item }) {
                         <option value='4'>4</option>
                         <option value='5'>5</option>
                     </select>
-                    <button className='cart-item-delete-btn' onClick={(e) => {
+                    <button className='cart-item-delete-btn clickable' onClick={(e) => {
                         e.preventDefault();
                         dispatch(cartActions.deleteCartItemThunk(item.id));
                         history.push(`/cart`);
