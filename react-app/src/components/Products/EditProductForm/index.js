@@ -69,6 +69,9 @@ function EditProductForm() {
         if (asin.length > 19) errors.push('ASIN must be less than 20 characters.');
         if (image.length > 254) errors.push('Image URL must be less than 255 characters.');
         // Need to add validation for .jpg, .png ending.
+        let imageStrArr = image.split('.')
+        if (!imageStrArr[0].includes('http')) errors.push('Image URL must start with "http://" or "https://".')
+        if (!(imageStrArr[imageStrArr.length - 1].includes('jpg') || imageStrArr[imageStrArr.length - 1].includes('jpeg') || imageStrArr[imageStrArr.length - 1].includes('png'))) errors.push('Image URL must end with ".jpg", ".jpeg", or ".png".')
 
         setErrors(errors);
 
