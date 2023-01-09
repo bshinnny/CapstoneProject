@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import Logo from '../images/yellow-arrow.png';
+import Github from '../images/github.png';
 import './NavBar.css'
 
 const NavBar = () => {
@@ -45,6 +46,9 @@ const NavBar = () => {
                     </NavLink>
                 </div>
                 <div className='nav-bar-profile-cart-div'>
+                    <a className='github-img-link' href='https://github.com/bshinnny'>
+                        <img className='github-img' src={Github} alt='github'></img>
+                    </a>
                     <button className='nav-bar-cart-button clickable' onClick={openCart}><i className="fa-solid fa-cart-shopping 3xl"></i></button>
                     <button className='nav-bar-profile-button clickable' onClick={handleDropdown}>
                         <div>Profile Details</div>
@@ -63,12 +67,15 @@ const NavBar = () => {
             :
             <div className='nav-bar-cont-user'>
                 <div className='nav-bar-logo-div'>
-                    <NavLink className='nav-bar-logo-nl' exact to='/products'>
+                    <NavLink className='nav-bar-logo-nl' exact to='/'>
                         <img className='logo' alt='branazon-logo' src={Logo}></img>
                         <h1 className='nav-bar-heading'>Branazon</h1>
                     </NavLink>
                 </div>
                 <div className='nav-bar-profile-cart-div-no-user'>
+                    <a className='github-img-link' href='https://github.com/bshinnny'>
+                        <img className='github-img' src={Github} alt='github'></img>
+                    </a>
                     <NavLink to='/sign-up' exact={true} activeClassName='active' className='nav-bar-link'>
                         Sign Up
                     </NavLink>
