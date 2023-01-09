@@ -63,7 +63,7 @@ def post_product():
         color = form.data['color']
         category = form.data['category']
         asin = form.data['asin']
-        prime = form.data['prime']
+        prime = form.data['prime'] or False
         image = form.data['image']
 
         new_product = Product(name=name, user_id=user_id, price=price, brand=brand, description=description, length=length, width=width, height=height, weight=weight, color=color, category=category, asin=asin, prime=prime, image=image)
@@ -107,7 +107,7 @@ def edit_product(product_id):
         product.color = form.data['color']
         product.category = form.data['category']
         product.asin = form.data['asin']
-        product.prime = form.data['prime']
+        product.prime = form.data['prime'] or False
         product.image = form.data['image']
 
         db.session.commit()
