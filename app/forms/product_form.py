@@ -50,7 +50,8 @@ class ProductForm(FlaskForm):
     category = StringField("Category", validators=[DataRequired(), category_length])
     # Maybe make not required.
     asin = StringField("ASIN", validators=[DataRequired(), asin_length])
-    prime = BooleanField("Prime", validators=[DataRequired()])
+    # prime = BooleanField("Prime", validators=[DataRequired()])
+    prime = BooleanField("Prime")
     image = StringField("Image URL", validators=[DataRequired(), url_length])
 
 
@@ -67,5 +68,6 @@ class UpdateProductForm(FlaskForm):
     category = StringField("Category", validators=[DataRequired(), category_length])
     # Maybe make not required.
     asin = StringField("ASIN", validators=[DataRequired(), asin_length])
-    prime = BooleanField("Prime", validators=[DataRequired()])
+    # prime = BooleanField("Prime", validators=[DataRequired()])
+    prime = BooleanField("Prime")
     image = StringField("Image URL", validators=[DataRequired(), url_length])
