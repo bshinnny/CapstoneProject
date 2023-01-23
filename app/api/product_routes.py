@@ -145,3 +145,13 @@ def get_all_products_cat(category):
     """
     products = Product.query.filter(Product.category == category.capitalize()).all()
     return {'Products': [product.to_dict() for product in products]}
+
+# GET all products from a search feature.
+@product_routes.route('/search/<term>')
+def get_product_search(term):
+    """
+    Get all products from a search term.
+    """
+    search =f"%{term}%"
+    products = Product.query.filter(Product.name.ilike(search)).all()
+    return {'Products': [product.to_dict() for product in products]}
