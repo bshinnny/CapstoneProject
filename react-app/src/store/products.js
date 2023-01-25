@@ -5,6 +5,7 @@ const GET_USER_PRODUCTS = 'products/GET_USER_PRODUCTS';
 const CREATE_A_PRODUCT = 'products/CREATE_A_PRODUCT';
 const EDIT_A_PRODUCT = 'products/EDIT_A_PRODUCT';
 const DELETE_A_PRODUCT = 'products/DELETE_A_PRODUCT';
+const GET_SEARCH_TERMS = 'products/GET_SEARCH_TERMS';
 
 // ACTIONS
 export const getAllProducts = (products) => {
@@ -53,6 +54,13 @@ export const deleteAProduct = (productId) => {
     return {
         type: DELETE_A_PRODUCT,
         productId
+    }
+}
+
+export const getSearchTerms = (products) => {
+    return {
+        type: GET_SEARCH_TERMS,
+        products
     }
 }
 
@@ -133,6 +141,16 @@ export const deleteAProductThunk = (productId) => async dispatch => {
 
     if (response.ok) {
         dispatch(deleteAProduct(productId));
+    }
+}
+
+export const getSearchTermsThunk = (term) => async dispatch => {
+    const response = await fetch(`/api/products/search/${term}`);
+
+    if (response.ok) {
+        const product = await response.json();
+        dispatch(getSearchTerms(product));
+        return response;
     }
 }
 
