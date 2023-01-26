@@ -5,6 +5,7 @@ const GET_USER_PRODUCTS = 'products/GET_USER_PRODUCTS';
 const CREATE_A_PRODUCT = 'products/CREATE_A_PRODUCT';
 const EDIT_A_PRODUCT = 'products/EDIT_A_PRODUCT';
 const DELETE_A_PRODUCT = 'products/DELETE_A_PRODUCT';
+const GET_SEARCH_TERMS = 'products/GET_SEARCH_TERMS';
 
 // ACTIONS
 export const getAllProducts = (products) => {
@@ -53,6 +54,13 @@ export const deleteAProduct = (productId) => {
     return {
         type: DELETE_A_PRODUCT,
         productId
+    }
+}
+
+export const getSearchTerms = (products) => {
+    return {
+        type: GET_SEARCH_TERMS,
+        products
     }
 }
 
@@ -136,6 +144,16 @@ export const deleteAProductThunk = (productId) => async dispatch => {
     }
 }
 
+export const getSearchTermsThunk = (term) => async dispatch => {
+    const response = await fetch(`/api/products/search/${term}`);
+
+    if (response.ok) {
+        const product = await response.json();
+        dispatch(getSearchTerms(product));
+        return response;
+    }
+}
+
 // Format initial data.
 const formatData = (array) => {
     const object = {};
@@ -150,7 +168,8 @@ const initialState = {
     allProducts: {},
     categoryProducts: {},
     userProducts: {},
-    productDetails: {}
+    productDetails: {},
+    searchProducts: {}
 }
 
 export default function productsReducer(state= initialState, action) {
@@ -188,6 +207,11 @@ export default function productsReducer(state= initialState, action) {
             newState = {...state, allProducts: {...state.allProducts}, userProducts: {...state.userProducts}};
             delete newState.allProducts[action.productId];
             delete newState.userProducts[action.productId];
+            return newState;
+        case GET_SEARCH_TERMS:
+            const searchProductsArr = action.products.Products;
+            const searchProductsObj = formatData(searchProductsArr);
+            newState = {...state, searchProducts: searchProductsObj};
             return newState;
         default:
             return state;
