@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import * as productActions from '../../../store/products';
 import ProductCard from '../ProductCard';
+import './SearchResults.css'
 
 function SearchResults() {
     const dispatch = useDispatch();
@@ -16,7 +17,8 @@ function SearchResults() {
     }, [dispatch, term])
 
     return (
-        <div className='product-category-cont'>
+        <div className='search-results-cont'>
+            {products && Object.values(products).length > 0 && <div>{`1-${Object.values(products).length} of ${Object.values(products).length} results for "${term}"`}</div>}
             <div className='product-card-div'>
                 {Object.values(products).map((product) => {
                     return (

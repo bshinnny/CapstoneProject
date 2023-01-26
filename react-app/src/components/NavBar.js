@@ -26,7 +26,8 @@ const NavBar = () => {
 
     const dispatchSearch = (e) => {
         e.preventDefault();
-        history.push(`/search/${searchTerm}`)
+        // dispatch(productActions.getSearchTermsThunk(searchTerm));
+        history.push(`/products/search/${searchTerm}`);
     }
 
     useEffect(() => {
@@ -60,7 +61,7 @@ const NavBar = () => {
                         required
                         className='input'
                     />
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button onClick={dispatchSearch}><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
                 <div className='nav-bar-profile-cart-div'>
                     {/* <a className='github-img-link' href='https://github.com/bshinnny'>
