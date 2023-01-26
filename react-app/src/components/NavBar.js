@@ -10,6 +10,7 @@ const NavBar = () => {
     const history = useHistory();
 
     const [showDropdown, setShowDropdown] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
 
     const user = useSelector(state => state.session.user);
 
@@ -21,6 +22,12 @@ const NavBar = () => {
     const openCart = (e) => {
         e.preventDefault();
         history.push(`/cart`)
+    }
+
+    const dispatchSearch = (e) => {
+        e.preventDefault();
+        // dispatch(productActions.getSearchTermsThunk(searchTerm));
+        history.push(`/products/search/${searchTerm}`);
     }
 
     useEffect(() => {
@@ -45,10 +52,21 @@ const NavBar = () => {
                         <h1 className='nav-bar-heading'>Branazon</h1>
                     </NavLink>
                 </div>
+                <div>
+                    <input
+                        type='text'
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        value={searchTerm}
+                        placeholder='Search Amazon'
+                        required
+                        className='input'
+                    />
+                    <button onClick={dispatchSearch}><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
                 <div className='nav-bar-profile-cart-div'>
-                    <a className='github-img-link' href='https://github.com/bshinnny'>
+                    {/* <a className='github-img-link' href='https://github.com/bshinnny'>
                         <img className='github-img' src={Github} alt='github'></img>
-                    </a>
+                    </a> */}
                     <button className='nav-bar-cart-button clickable' onClick={openCart}><i className="fa-solid fa-cart-shopping 3xl"></i></button>
                     <button className='nav-bar-profile-button clickable' onClick={handleDropdown}>
                         <div>Profile Details</div>
@@ -72,10 +90,21 @@ const NavBar = () => {
                         <h1 className='nav-bar-heading'>Branazon</h1>
                     </NavLink>
                 </div>
+                <div>
+                    <input
+                        type='text'
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        value={searchTerm}
+                        placeholder='Search Amazon'
+                        required
+                        className='input'
+                    />
+                    <button>Enter</button>
+                </div>
                 <div className='nav-bar-profile-cart-div-no-user'>
-                    <a className='github-img-link' href='https://github.com/bshinnny'>
+                    {/* <a className='github-img-link' href='https://github.com/bshinnny'>
                         <img className='github-img' src={Github} alt='github'></img>
-                    </a>
+                    </a> */}
                     <NavLink to='/sign-up' exact={true} activeClassName='active' className='nav-bar-link'>
                         Sign Up
                     </NavLink>
