@@ -18,6 +18,7 @@ import SplashPage from './components/SplashPage';
 import CategoryProducts from './components/Products/CategoryProducts';
 import ThankYou from './components/Orders/ThankYou';
 import CategoriesBar from './components/CategoriesBar';
+import SearchResults from './components/Products/SearchResults';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -59,6 +60,9 @@ function App() {
         </Route>
         <Route path='/products/category/:category' exact={true}>
           <CategoryProducts />
+        </Route>
+        <Route path='/products/search/:term' exact={true}>
+          <SearchResults />
         </Route>
         <ProtectedRoute path='/products/:productId/edit' exact={true}>
           <EditProductForm />

@@ -168,7 +168,8 @@ const initialState = {
     allProducts: {},
     categoryProducts: {},
     userProducts: {},
-    productDetails: {}
+    productDetails: {},
+    searchProducts: {}
 }
 
 export default function productsReducer(state= initialState, action) {
@@ -206,6 +207,11 @@ export default function productsReducer(state= initialState, action) {
             newState = {...state, allProducts: {...state.allProducts}, userProducts: {...state.userProducts}};
             delete newState.allProducts[action.productId];
             delete newState.userProducts[action.productId];
+            return newState;
+        case GET_SEARCH_TERMS:
+            const searchProductsArr = action.products.Products;
+            const searchProductsObj = formatData(searchProductsArr);
+            newState = {...state, searchProducts: searchProductsObj};
             return newState;
         default:
             return state;
