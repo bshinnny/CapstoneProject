@@ -35,3 +35,14 @@ def post_order():
         db.session.commit()
 
     return {'message': 'Product was successfully ordered.'}
+
+# GET all current user's orders.
+@order_routes.route('/current')
+@login_required
+def get_all_orders():
+    """
+    Get all orders and returns them in a list of order dictionaries.
+    """
+     current_user_id = current_user.id
+    orders = Order.query.filter(Order.user_id == current_user_id).all()
+    return {'Orders': [orders.]}
