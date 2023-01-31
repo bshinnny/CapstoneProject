@@ -46,3 +46,24 @@ def get_all_orders():
     current_user_id = current_user.id
     orders = Order.query.filter(Order.user_id == current_user_id).all()
     return {'Orders': [order.to_dict() for order in orders]}
+
+# DELETE an order.
+@order_routes.route('/<int:order_id>', methods=['DELETE'])
+@login_required
+def delete_order(order_id):
+    """
+    Delete an order.
+    """
+    current_user_id = current_user.id
+    order = Order.query.get(order_id)
+
+    if not order:
+        return {'errors': 'Order not found.'}, 404
+
+    if not current_user_id == order.user_id:
+        return {'errors': 'You are not authorized to delete this order.'}, 401
+
+    db.session.delete(order)
+    db.session.commit()
+
+    return {'message': 'Order was successfully deleted.'}
