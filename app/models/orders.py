@@ -25,9 +25,15 @@ class Order(db.Model):
         return {
             "id": self.id,
             "userId": self.user_id,
+            "user": self.user.to_dict(),
             "productId": self.product_id,
+            "product": self.product.to_dict(),
             "quantity": self.quantity,
             "price": self.price,
             "street": self.street,
-            
+            "city": self.city,
+            "state": self.state,
+            "zipCode": self.zip_code,
+            "country": self.country,
+            "delivered": self.delivered,
         }

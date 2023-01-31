@@ -43,6 +43,6 @@ def get_all_orders():
     """
     Get all orders and returns them in a list of order dictionaries.
     """
-     current_user_id = current_user.id
+    current_user_id = current_user.id
     orders = Order.query.filter(Order.user_id == current_user_id).all()
-    return {'Orders': [orders.]}
+    return {'Orders': [order.to_dict() for order in orders]}
