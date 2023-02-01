@@ -17,6 +17,13 @@ export const getUserOrders = (orders) => {
     }
 }
 
+export const deleteAnOrder = (orderId) => {
+    return {
+        type: DELETE_AN_ORDER,
+        orderId
+    }
+}
+
 // THUNKS
 export const addOrderThunk = () => async dispatch => {
     const response = await fetch('/api/orders', {
@@ -37,6 +44,16 @@ export const getUserOrdersThunk = () => async dispatch => {
         const orders = await response.json();
         dispatch(getUserOrders(orders));
         return response;
+    }
+}
+
+export const deleteAnOrderThunk = (orderId) => async dispatch => {
+    const response = await fetch(`api/orders/${orderId}`, {
+        method: 'DELETE'
+    })
+
+    if (response.ok) {
+        dispatch(deleteAnOrder(orderId));
     }
 }
 
@@ -67,6 +84,10 @@ export default function ordersReducer(state= initialState, action) {
             const userOrdersArr = action.orders.Orders;
             const userOrdersObj = formatData(userOrdersArr);
             newState = {...state, userOrders: userOrdersObj};
+            return newState;
+        case DELETE_AN_ORDER:
+            newState = {...state, userOrders: {...state.userOrders}};
+            delete newState.userOrders[action.orderId];
             return newState;
         default:
             return state;
