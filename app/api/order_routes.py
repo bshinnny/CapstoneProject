@@ -15,7 +15,7 @@ def post_order():
     Post user's order to orders database.
     """
     cart_items = CartItem.query.options(joinedload(CartItem.product)).filter(CartItem.user_id == current_user.id).all()
-
+    new_orders = []
     for cart_item in cart_items:
         new_order_instance = Order(
             user_id=current_user.id,
@@ -31,10 +31,11 @@ def post_order():
             )
         db.session.add(new_order_instance)
         db.session.commit()
+        new_orders.append(new_order_instance)
         db.session.delete(cart_item)
         db.session.commit()
 
-    return {'message': 'Product was successfully ordered.'}
+    return {'newOrders': [order.to_dict() for order in new_orders]}
 
 # GET all current user's orders.
 @order_routes.route('/current')
