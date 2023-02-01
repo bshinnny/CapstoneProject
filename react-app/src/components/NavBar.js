@@ -52,7 +52,7 @@ const NavBar = () => {
                         <h1 className='nav-bar-heading'>Branazon</h1>
                     </NavLink>
                 </div>
-                <div>
+                <div className='search-input'>
                     <input
                         type='text'
                         onChange={(e) => setSearchTerm(e.target.value)}
@@ -90,16 +90,16 @@ const NavBar = () => {
                         <h1 className='nav-bar-heading'>Branazon</h1>
                     </NavLink>
                 </div>
-                <div>
+                <div className='search-input-div'>
                     <input
                         type='text'
                         onChange={(e) => setSearchTerm(e.target.value)}
                         value={searchTerm}
                         placeholder='Search Amazon'
                         required
-                        className='input'
+                        className='search-input'
                     />
-                    <button>Enter</button>
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
                 <div className='nav-bar-profile-cart-div-no-user'>
                     {/* <a className='github-img-link' href='https://github.com/bshinnny'>
