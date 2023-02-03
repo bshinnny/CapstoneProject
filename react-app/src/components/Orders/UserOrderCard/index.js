@@ -1,8 +1,33 @@
-import { NavLink } from 'react-router-dom';
-import ErrorImg from '../../../images/unhappy.jpeg'
-import './UserOrderCard.css'
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
+import ErrorImg from '../../../images/unhappy.jpeg';
+import * as cartActions from '../../../store/cart';
+import './UserOrderCard.css';
 
 function UserOrderCard({ order }) {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const [errors, setErrors] = useState([]);
+
+    const dispatchAtc = async (e) => {
+        e.preventDefault();
+        const data = await dispatch(cartActions.addCartItemThunk(order.product.id));
+        if (data) {
+            setErrors(data);
+            // console.log(errors);
+            // return;
+        }
+        else {
+            history.push('/cart')
+        }
+    }
+
+    const dispatchListing = async (e) => {
+        e.preventDefault();
+        history.push(`/products/${order.product.id}`)
+    }
+
     return (
         <div className='order-card-cont'>
             <div className='order-card-header'>
@@ -35,7 +60,15 @@ function UserOrderCard({ order }) {
                     <NavLink className='order-link' to={`/orders/current/${order.id}`}>
                         <div className='order-card-link-text'>{order.product.name}</div>
                     </NavLink>
-                    <button></button>
+                        {errors.length > 0 && <div>
+                        {errors.map((error, ind) => (
+                            <div key={ind}>{error}</div>
+                        ))}
+                        </div>}
+                    <div className='order-link-btn-div'>
+                        <button onClick={dispatchAtc} className='product-details-atc-btn clickable'>Buy It Again</button>
+                        <button onClick={dispatchListing} className='product-details-atc-btn-delete clickable'>Go To Listing</button>
+                    </div>
                 </div>
 
             </div>

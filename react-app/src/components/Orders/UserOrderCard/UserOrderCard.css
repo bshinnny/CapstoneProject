@@ -51,7 +51,7 @@
 
 .order-link {
     display: flex;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     text-decoration: none;
     color: rgb(1,113,133);
 }
@@ -60,14 +60,32 @@
     height: 200px;
     width: 200px;
     max-width: 100%;
+    min-width: 200px;
     padding: 5px;
     border: 1px solid lightslategray;
     margin: 10px;
     object-fit: contain;
 }
 
-.order-card-link-text {
-    margin-top: 10px;
-    margin-right: 20px;
+.order-link-text-div {
+    /* border: 1px solid red; */
+    margin: 10px 20px;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.order-card-link-text {
+    /* margin-top: 10px;
+    margin-right: 20px; */
+    display: flex;
+}
+
+.order-link-btn-div {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid green; */
+    margin-bottom: 100px;
 }
