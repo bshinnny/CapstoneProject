@@ -1,0 +1,57 @@
+.order-card-cont {
+    border: 1px solid lightslategray;
+    display: flex;
+    margin: 20px;
+    /* padding: 10px; */
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+.order-card-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid lightslategray;
+    box-sizing: content-box;
+    background-color: rgb(119, 136, 153, 0.3);
+}
+
+.order-card-header-left {
+    display: flex;
+    justify-content: space-around;
+}
+
+.order-header-info {
+    display: flex;
+}
+
+.order-header-info-bit {
+    margin: 15px 0px 15px 10px;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    font-size: small;
+    font-weight: bold;
+}
+
+.order-link {
+    display: flex;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.order-card-image {
+    height: 200px;
+    width: 200px;
+    max-width: 100%;
+    padding: 5px;
+    border: 1px solid lightslategray;
+    margin: 10px;
+    object-fit: contain;
+}
+
+.order-card-link-text {
+    margin-top: 10px;
+    display: flex;
+}
