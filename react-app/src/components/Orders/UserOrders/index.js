@@ -14,9 +14,8 @@ function UserOrders() {
 
     return (
         <div className='user-orders-cont'>
-            TEST
             <div className='user-orders-card-div'>
-                {Object.values(orders).map((order) => {
+                {Object.values(orders).reverse().map((order) => {
                     return (
                         <UserOrderCard key={`order-${order.id}`} order={order}/>
                     )

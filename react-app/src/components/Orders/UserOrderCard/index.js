@@ -13,7 +13,7 @@ function UserOrderCard({ order }) {
                             <div>{order.price.toFixed(2)}</div>
                         </div>
                         <div className='order-header-info-bit'>
-                            <div>QUANTITY</div>
+                            <div>QTY</div>
                             <div>{order.quantity}</div>
                         </div>
                         <div className='order-header-info-bit'>
@@ -22,14 +22,23 @@ function UserOrderCard({ order }) {
                         </div>
                     </div>
                 </div>
-                <div>
-
+                <div className='order-card-header-right'>
+                    <div className='order-header-info-bit'>
+                        {/* <div>ORDER #</div> */}
+                        <div>{`ORDER ID: ${order.id}`}</div>
+                    </div>
                 </div>
             </div>
-            <NavLink className='order-link' to={`/orders/current/${order.id}`}>
+            <div className='order-link-div'>
                 <img src={order.product.imageUrl} alt={order.product.name} className='order-card-image' onError={e => { e.currentTarget.src = ErrorImg}}></img>
-                <div className='order-card-link-text'>{order.product.name}</div>
-            </NavLink>
+                <div className='order-link-text-div'>
+                    <NavLink className='order-link' to={`/orders/current/${order.id}`}>
+                        <div className='order-card-link-text'>{order.product.name}</div>
+                    </NavLink>
+                    <button></button>
+                </div>
+
+            </div>
         </div>
     )
 }
