@@ -14,6 +14,9 @@ function UserOrders() {
 
     return (
         <div className='user-orders-cont'>
+            <div className='orders-header-div'>
+                <h2 className='orders-header'>My Orders</h2>
+            </div>
             <div className='user-orders-card-div'>
                 {Object.values(orders).reverse().map((order) => {
                     return (

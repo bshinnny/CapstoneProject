@@ -1,10 +1,24 @@
 .user-orders-cont {
     display: flex;
+    flex-direction: column;
     width: 95vw;
     margin: 1vw 2.5vw;
     height: fit-content;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     flex-direction: column;
     align-items: center;
     /* background-color: lightslategray; */
+}
+
+.orders-header-div {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.orders-header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 10px;
+    /* border-bottom: 1px solid lightslategray; */
 }
