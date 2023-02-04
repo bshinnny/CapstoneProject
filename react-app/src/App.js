@@ -19,6 +19,7 @@ import CategoryProducts from './components/Products/CategoryProducts';
 import ThankYou from './components/Orders/ThankYou';
 import CategoriesBar from './components/CategoriesBar';
 import SearchResults from './components/Products/SearchResults';
+import UserOrders from './components/Orders/UserOrders';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -72,6 +73,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/orders' exact={true}>
           <ThankYou />
+        </ProtectedRoute>
+        <ProtectedRoute path='/orders/current' exact={true}>
+          <UserOrders />
         </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
