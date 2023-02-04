@@ -4,6 +4,11 @@
 
 .product-link {
     text-decoration: none;
+    color: rgb(1,113,133);
+    /* display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis; */
 }
 
 .product-card {
@@ -36,9 +41,14 @@
     width: 220px;
     max-height: 105px;
     overflow-wrap: break-word;
-    overflow: auto;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
 }
 
-/* .product-card-price {
+.product-card-price {
+    margin-top: 5px;
     grid-area: price;
-} */
+}

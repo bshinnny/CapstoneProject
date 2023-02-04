@@ -137,7 +137,7 @@ function ProductDetails() {
                 </div>
             </div>
             <div className='pd-suggested'>
-                <h3 style={{color: 'orange'}}>{`Customers also bought these items in the ${product.category} category...`}</h3>
+                <h3 style={{color: 'rgb(240,162,42)'}}>{`Customers also bought these items in the ${product.category} category...`}</h3>
                 <div className='pd-suggested-card-div'>
                     {Object.values(suggestedProducts).map((product) => {
                         return (
