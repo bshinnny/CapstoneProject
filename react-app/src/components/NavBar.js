@@ -67,10 +67,15 @@ const NavBar = () => {
                     {/* <a className='github-img-link' href='https://github.com/bshinnny'>
                         <img className='github-img' src={Github} alt='github'></img>
                     </a> */}
-                    <button className='nav-bar-cart-button clickable' onClick={openCart}><i className="fa-solid fa-cart-shopping 3xl"></i></button>
                     <button className='nav-bar-profile-button clickable' onClick={handleDropdown}>
-                        <div>Profile Details</div>
+                        <div>{`Hello, ${user.firstName}`}</div>
+                        <div className='nb-orders-bolded'>Account & Lists</div>
                     </button>
+                    <NavLink className='nb-orders' exact to='/orders/current'>
+                        <div>Returns</div>
+                        <div className='nb-orders-bolded'>& Orders</div>
+                    </NavLink>
+                    <button className='nav-bar-cart-button clickable' onClick={openCart}><i className="fa-solid fa-cart-shopping 3xl"></i></button>
                 </div>
                 {showDropdown && (
                     <ul className='dropdown'>
